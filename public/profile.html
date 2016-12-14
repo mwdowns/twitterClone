@@ -1,0 +1,24 @@
+<div>
+  {{username}}
+  <p>these are your followers:</p>
+  <ul>
+      <li ng-repeat="follower in followers">
+          <p>{{follower}}</p>
+      </li>
+  </ul>
+  <p>you are following these people:</p>
+  <ul>
+      <li ng-repeat="user in following">
+          <p>{{user}}</p>
+      </li>
+  </ul>
+</div>
+
+<div>
+  <h1>BEHOLD! THE TWEETS OF YOUR TIMELINE!</h1>
+  <ul>
+      <li ng-repeat="tweet in tweets">
+          <strong>{{tweet.user}}</strong>: {{tweet.tweet}}
+      </li>
+  </ul>
+</div>
