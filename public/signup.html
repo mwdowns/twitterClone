@@ -1,0 +1,18 @@
+<h1>GREETING, PEON. YOU MAY NOW SIGN UP FOR TWEETER, WHICH IS DEFINTIELY NOT ANYTHING LIKE TWITTER. AT ALL. NOTHING LIKE IT.</h1>
+
+<form ng-submit="signupSubmit()" method="post">
+  <div>
+    <label for="username">Username:</label>
+    <input id="username" ng-model="username" type="text" name="username">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" ng-model="password" type="password" name="password">
+  </div>
+  <div>
+    <label for="confirm-password">Confirm password:</label>
+    <input id="confirm-password" ng-model="confirmPassword" type="password" name="">
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<div ng-show="passwordsdontmatch">Passwords don't match</div>

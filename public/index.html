@@ -13,10 +13,18 @@
   <script src="frontend.js" charset="utf-8"></script>
   <body ng-app="tweeter">
     <div ng-controller="TweetController">
-    <form ng-submit="submitTweet()">
-      <input class="tweetbox" type="text" ng-model="tweet" placeholder="what's on your mind?"><button>Tweet</button>
-    </form>
-  </div>
+      <div ng-hide="loggedIn">
+        <button ng-click="goToLogin()">Login</button> or <button ng-click="goToSignUp()">Signup</button>
+      </div>
+      <div ng-show="loggedIn">
+        <p>Hello <strong><span ng-click="goToUser(username)">{{username}}</span></strong>. Enjoy your Tweeters</p>
+        <button ng-click="logout()">Logout</button>
+      </div>
+      <form ng-submit="submitTweet()">
+        <input class="tweetbox" type="text" ng-model="tweet" placeholder="what's on your mind?"><button>Tweet</button>
+      </form><br>
+      <button ng-click="goToWorldTimeLine()">World Timeline</button>
+    </div>
     <ui-view></ui-view>
   </body>
 </html>

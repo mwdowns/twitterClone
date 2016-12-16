@@ -1,24 +1,47 @@
 <div>
-  {{username}}
-  <p>these are your followers:</p>
-  <ul>
-      <li ng-repeat="follower in followers">
-          <p>{{follower}}</p>
-      </li>
-  </ul>
-  <p>you are following these people:</p>
-  <ul>
-      <li ng-repeat="user in following">
-          <p>{{user}}</p>
-      </li>
-  </ul>
+  <h1>{{username}}</h1>
+  <div ng-hide="!loggedIn">
+    <div ng-hide="isme">
+      <div ng-hide="isfollowing">
+        <button ng-click="follow()">Follow</button>
+      </div>
+      <div ng-show="isfollowing">
+        <button ng-click="unfollow()">Unfollow</button>
+      </div>
+    </div>
+  </div>
+  <div class="followers">
+    <button ng-click="clickingFollowers()">Followers</button>
+    <ul>
+        <li ng-hide="!followerscliked" ng-repeat="follower in followers">
+            <p>{{follower}}</p>
+        </li>
+    </ul>
+  </div>
+  <div class="following">
+    <button ng-click="clickingFollowing()">Following</button>
+    <ul>
+        <li ng-hide="!followingclicked" ng-repeat="user in following">
+            <p>{{user}}</p>
+        </li>
+    </ul>
+  </div>
 </div>
 
 <div>
-  <h1>BEHOLD! THE TWEETS OF YOUR TIMELINE!</h1>
-  <ul>
-      <li ng-repeat="tweet in tweets">
-          <strong>{{tweet.user}}</strong>: {{tweet.tweet}}
-      </li>
-  </ul>
+  <span ng-show="isme"><button ng-click="showMyTimeLine()">My Timeline</button></span>
+  <button ng-click="showmytweets()">My Tweets</button>
+  <button ng-click="showmyfavorites()">My Favorites</button>
+  <div ng-show="showmytimeline">
+    <!-- <h1>BEHOLD! THE TWEETS OF YOUR TIMELINE!</h1> -->
+    <ul>
+        <li ng-repeat="tweet in tweets">
+            <span ng-click="getTweet(tweet)"><strong><span ng-click="goToUser(tweet.user)">{{tweet.user}}</span></strong>: {{tweet.tweet}}</span><br>
+            <form ng-show="tweetClicked">
+              <button ng-click="retweet(tweet)">Retweet</button>
+              <button ng-click="favorite(tweet)">Favorite</button>
+            </form>
+        </li>
+    </ul>
+  </div>
 </div>

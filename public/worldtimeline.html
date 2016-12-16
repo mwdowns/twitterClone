@@ -2,7 +2,12 @@
   <h1>BEHOLD! THE TWEETS OF THE WORLD!</h1>
   <ul>
       <li ng-repeat="tweet in tweets">
-          <strong>{{tweet.user}}</strong>: {{tweet.tweet}}
+          <span ng-click="getTweet(tweet)"><strong><span ng-click="goToUser(tweet.user)">{{tweet.user}}</span></strong>: {{tweet.tweet}}</span><br>
+          <form ng-show="tweet.tweetClicked">
+            <!-- <button ng-click="goToUser(tweet.user)">go to user</button> -->
+            <button ng-click="retweet(tweet)">Retweet</button>
+            <button ng-click="favorite(tweet)">Favorite</button>
+          </form>
       </li>
   </ul>
 </div>

@@ -1,0 +1,14 @@
+<h1>YOU MAY NOW LOG IN TO TWEETER, PEON. REMEMBER, THIS IS NOT TWITTER.</h1>
+
+<form method="post" ng-submit="login()">
+  <div>
+    <label for="username">Username:</label>
+    <input id="username" ng-model="user" type="text" name="username">
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" ng-model="password" type="password" name="password">
+  </div>
+  <button type="submit">Submit</button>
+  <div ng-show="wronglogin">Either your username or password is borked</div>
+</form>
